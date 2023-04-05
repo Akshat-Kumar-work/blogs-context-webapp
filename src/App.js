@@ -1,3 +1,7 @@
 export default function App() {
-  return <div>Hello World</div>;
+  return (<div>
+    <Header/>
+    <Blogs/>
+    <Pageination/>
+  </div>);
 }
