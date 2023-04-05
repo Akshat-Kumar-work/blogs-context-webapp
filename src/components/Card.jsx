@@ -1,8 +1,9 @@
-function Pageination(){
+function Card (){
+
     return(
         <div>
 
         </div>
     )
 }
-export default Pageination;
+export default Card;
