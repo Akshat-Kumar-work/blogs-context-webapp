@@ -4,7 +4,7 @@ import { Appcontext } from "../context/Appcontext";
 function Pageination(){
           const {page, handlePageChange,totalPages} = useContext(Appcontext)
     return(
-        <div className='w-full flex justify-center items-center  fixed bottom-9 bg-white'>
+        <div className='w-full flex justify-center items-center bottom-0 py-4 fixed  bg-white'>
         <div className='flex justify-between w-11/12 max-w-[670px] py-2'>
         <div className='flex gap-x-2'> 
           

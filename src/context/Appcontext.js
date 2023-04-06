@@ -1,9 +1,9 @@
 import { createContext, useState } from "react";
 import {baseUrl} from "../baseUrl"
 
-//first step => creating context with help of createContext method
-export const Appcontext = createContext();
 
+//first step => creating context with help of createContext method
+ export const Appcontext = createContext();
 
 //here children means app.js , as it is present in index.js file 
 //appcontextprovider naam ka component hai , jiske andar app.js file hai as a children in index.js file
@@ -63,5 +63,7 @@ function AppcontextProvider({children}){
           {children}
      </Appcontext.Provider>
 }
+
+
 
 export default AppcontextProvider;
