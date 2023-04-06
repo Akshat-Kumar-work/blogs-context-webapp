@@ -19,12 +19,14 @@ function AppcontextProvider({children}){
      async function fetchBlogPosts(page=1){
           setloading(true);
           let url = `${baseUrl}?page=${page}`;
+          console.log("printing the final URL");
+        console.log(url);
           try{
                const result = await fetch(url);
-               const data = result.json();
+               const data = await result.json();
                console.log(data)
                setPage(data.page)
-               setPosts(data.post)
+               setPosts(data.posts)
                setTotalPages(data.totalPages)
           }
           catch(error){

@@ -27,3 +27,6 @@
 @keyframes s2{ 
   100%{transform: rotate(.5turn)}
 }
+.title{
+  color:brown
+}
