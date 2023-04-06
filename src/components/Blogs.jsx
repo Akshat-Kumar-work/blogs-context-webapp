@@ -11,7 +11,7 @@ const Blogs = () => {
 
 
   return (
-    <div className='w-11/12 max-w-[670px] h-screen py-8 flex flex-col gap-y-7 mt-[66px] mb-[70px]  justify-center items-center'>
+    <div className=' h-screen w-11/12 max-w-[670px]  py-8 flex flex-col gap-y-7 mt-[200px] mb-[70px]  justify-center items-center '>
     {
         loading ? 
 
@@ -24,7 +24,7 @@ const Blogs = () => {
             </div>) : 
             (posts.map( (post) => (
                 <div key={post.id}>
-                    <p className="font-bold text-lg title">{post.title}</p>
+                    <p className="font-bold text-lg">{post.title}</p>
                     <p className='text-sm mt-[4px]'>
                         By <span className='italic'>{post.author}</span> on <span className='underline font-bold'>{post.category} </span>
                     </p>

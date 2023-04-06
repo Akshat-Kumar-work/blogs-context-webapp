@@ -3,6 +3,7 @@ import Blogs from "./components/Blogs"
 import Pageination from "./components/Pageination"
 import { useContext, useEffect } from "react";
 import { Appcontext } from "./context/Appcontext";
+import "./App.css"
 
 export default function App() {
   
