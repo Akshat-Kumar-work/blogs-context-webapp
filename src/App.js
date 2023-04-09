@@ -1,14 +1,20 @@
 import "./App.css";
 import { useContext, useEffect } from "react";
 import { AppContext } from "./context/AppContext";
-import Header from "./components/Header";
-import Blogs from "./components/Blogs";
-import Pagination from "./components/Pagination";
 import { useLocation, useSearchParams } from "react-router-dom";
+import Home from "./pages/Home";
+import BlogPage from "./pages/BlogPage";
+import TagPage from "./pages/TagPage";
+import CategoryPage from "./pages/CategoryPage";
+import { Route, Routes } from "react-router-dom";
+
+
 export default function App() {
   const { fetchBlogPosts } = useContext(AppContext);
   const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation;
+  const location = useLocation();
+
+
   useEffect(() => {
     //agar page naam ki key milgyi toh uski value daldo page variable m, agar nai hai toh by default 1 daldo
     const page = searchParams.get("page") ?? 1;
