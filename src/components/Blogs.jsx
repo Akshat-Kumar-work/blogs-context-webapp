@@ -1,47 +1,39 @@
 import { useContext } from "react";
-import Spinner from "./Spinner";
-import {Appcontext} from "../context/Appcontext"
-import "./Blogs.css"
+import { AppContext } from "../context/AppContext";
 
-const Blogs = () => {
-    //consume
-    const {posts,loading} = useContext(Appcontext);
-    console.log("Printing inside blogs component");
-    console.log(posts);
-
+export default function Blogs() {
+  const { posts, loading } = useContext(AppContext);
 
   return (
-    <div className=' h-screen w-11/12 max-w-[670px]  py-8 flex flex-col gap-y-7 mt-[200px] mb-[200px]  justify-center items-center '>
-    {
-        loading ? 
-
-        (<Spinner />) : 
-
-        (   
-            posts.length === 0 ? 
-            (<div>
-                <p>No Post Found</p>
-            </div>) : 
-            (posts.map( (post) => (
-                <div key={post.id}>
-                    <p className="font-bold text-lg">{post.title}</p>
-                    <p className='text-sm mt-[4px]'>
-                        By <span className='italic'>{post.author}</span> on <span className='underline font-bold'>{post.category} </span>
-                    </p>
-                    <p className='text-sm mt-[4px]'>Posted on {post.date}</p>
-                    <p className='text-md mt-[14px]'>{post.content}</p>
-                    <div className='flex gap-x-3'>
-                        {post.tags.map( (tag, index) => {
-                            return <span key={index} className="text-blue-700 underline font-bold text-xs mt-[5px]">{` #${tag}`}</span>
-                        } )}
-                    </div>
-                </div>
-            ) ))
-        ) 
-    }
-      
+    <div className="flex flex-col gap-y-10 my-4">
+      {loading ? (
+        <div className="min-h-[80vh] w-full flex justify-center items-center">
+          <p className="text-center font-bold text-3xl">Loading</p>
+        </div>
+      ) : posts.length === 0 ? (
+        <div className="min-h-[80vh] w-full flex justify-center items-center">
+          <p className="text-center font-bold text-3xl">No Blogs Found !</p>
+        </div>
+      ) : (
+        posts.map((post) => (
+          <div key={post.id} className="w-11/12 max-w-2xl mx-auto">
+            <p className="font-bold text-lg">{post.title}</p>
+            <p className="text-sm my-1">
+              By <span className="italic">{post.author}</span> on{" "}
+              <span className="font-semibold underline cursor-pointer">{post.category}</span>
+            </p>
+            <p className="text-sm">Posted On {post.date}</p>
+            <p className="mt-4 mb-2">{post.content}</p>
+            <div className="flex flex-wrap gap-x-2 items-center">
+              {post.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="text-xs font-semibold underline text-blue-700 cursor-pointer">{`#${tag}`}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      )}
     </div>
-  )
+  );
 }
-
-export default Blogs
