@@ -41,25 +41,40 @@ const BlogPage = ()=>{
 
     return(
         <div>
-            <Header></Header>
-            <div>
-            <button onClick={()=>navigation(-1)}>
-                Back
-            </button>
-            </div>
-            <div>
-                {loading ? 
-                (<p>Loading</p>) : 
-                blog? (<div>
-                    <BlogDetails post={blog}></BlogDetails> 
-                    <h2>Related Blogs</h2>{relatedBlogs.map( (post)=>{
-                        <div key={post.id}>
-                            <BlogDetails post={post}/>
-                        </div>
-                    })}
-                </div>):(<p>No blog found </p>)}
-            </div>
+        <Header/>
+        <div>
+          <button
+          onClick={() => navigation(-1)}
+          >
+              Back
+          </button>
         </div>
+        {
+          loading ?
+          (<div>
+              <p> Loading</p>
+          </div>) :
+          blog ?
+          (<div>
+              <BlogDetails post={blog} />
+              <h2> Related Blogs </h2>
+              {
+                  relatedBlogs.map( (post) => (
+                      <div key = {post.id}>
+                          <BlogDetails post={post} />
+                      </div>
+                  ) )
+              }
+  
+          </div>) :
+          (<div>
+              <p>No Blog Found</p>
+          </div>)
+         
+        }
+  
+  
+      </div>
     )
 }
 

@@ -21,11 +21,11 @@ export default function App() {
     //check kro  current location k path name m tag naam ki chiz available hai
     if(location.pathname.includes("tags")){
       //agar available hai toh tag vala page show krdo , / se split kro alg alg sare words ko aur
-      const tag = location.pathname.split("/").at(-1).replaceAll("-", "");
+      const tag = location.pathname.split("/").at(-1).replaceAll("-"," ");
       fetchBlogPosts(Number(page) , tag);
     }
     else if( location.pathname.includes("categories")){
-      const category = location.pathname.split("/").at(-1).replaceAll("-", "");
+      const category = location.pathname.split("/").at(-1).replaceAll("-", " ");
       fetchBlogPosts(Number(page), null , category);
     }
     else{
@@ -38,8 +38,7 @@ export default function App() {
     <Route path="/" element={<Home/>}></Route>
     <Route path="/blog/:blogId" element={<BlogPage/>}></Route>
     <Route path="/tags/:tag" element={<TagPage/>}></Route>
-    <Route path="/categories/:category " element={<CategoryPage/>}></Route>
-
+    <Route path="/categories/:category" element={<CategoryPage/>}></Route>
    </Routes>
   );
 }

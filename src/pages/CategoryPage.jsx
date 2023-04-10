@@ -12,18 +12,20 @@ const CategoryPage = ()=>{
    
     return(
         <div>
-        <Header></Header>
+        <Header/>
         <div>
-            <button onClick={()=> navigation(-1)}>
-                Back
-            </button>
-            <h2>
-                Blogs on <span>{category}</span>
-            </h2>
+          <button
+          onClick={() => navigation(-1)}
+          >
+              Back
+          </button>
+          <h2> 
+              Blogs on <span>{category}</span>
+          </h2>
         </div>
-        <Blogs></Blogs>
-       <Pagination></Pagination>
-        </div>
+        <Blogs/>
+        <Pagination/>
+      </div>
     )
 }
 export default CategoryPage;
